@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="row align-items-center g-4">
+<div class="col-12 col-lg-6">
+<div class="p-4 p-md-5 glass h-100">
+<h1 class="display-5 mb-3">Welcome to <span class="brand-gradient">Student Exam Performance</span></h1>
+<p class="lead mb-4">Predict a student’s <strong>Math score</strong> from demographics, lunch & prep, and reading/writing scores. Clean UX, reliable preprocessing, and a production‑ready Flask backend.</p>
+<div class="d-flex gap-3">
+<a href="{{ url_for('predict_datapoint') }}" class="btn btn-brand btn-lg px-4">Start Prediction</a>
+<a href="#how-it-works" class="btn btn-outline-light btn-lg px-4">How it works</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6">
+<div class="p-4 p-md-5 glass h-100">
+<h2 id="how-it-works" class="h4 card-title mb-3">How it works</h2>
+<ol class="mb-0">
+<li class="mb-2"><strong>Input</strong> the five categorical fields and two test scores.</li>
+<li class="mb-2">We run your data through a <strong>preprocessing pipeline</strong> (imputation, encoding, scaling).</li>
+<li class="mb-2">The trained model predicts your <strong>Math score</strong> instantly.</li>
+</ol>
+</div>
+</div>
+</section>
+{% endblock %}

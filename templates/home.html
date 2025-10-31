@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block title %}Predict Math Score{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="hero-card p-4 p-md-5 mb-5 shadow-sm rounded-3">
+    <h1 class="display-6 fw-semibold mb-2">Predict Student Math Score</h1>
+    <p class="text-secondary mb-0">
+      Enter the student details below. The model will process and predict the math score instantly.
+    </p>
+  </div>
+
+  <div class="card shadow-sm border-0 rounded-3">
+    <div class="card-body p-4 p-md-5">
+      <form action="{{ url_for('predict_datapoint') }}" method="POST" class="row g-4">
+
+        <div class="col-md-6">
+          <label class="form-label" for="gender">Gender</label>
+          <select id="gender" class="form-select form-select-lg" name="gender" required>
+            <option value="" selected disabled>Select Gender</option>
+            <option value="female">female</option>
+            <option value="male">male</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="race_ethnicity">Race / Ethnicity (Group)</label>
+          <select id="race_ethnicity" class="form-select form-select-lg" name="race_ethnicity" required>
+            <option value="" selected disabled>Select Group</option>
+            <option value="group A">Group A</option>
+            <option value="group B">Group B</option>
+            <option value="group C">Group C</option>
+            <option value="group D">Group D</option>
+            <option value="group E">Group E</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="parental">Parental Level of Education</label>
+          <select id="parental" class="form-select form-select-lg" name="parental_level_of_education" required>
+            <option value="" selected disabled>Select Parent Education</option>
+            <option value="associate's degree">associate's degree</option>
+            <option value="bachelor's degree">bachelor's degree</option>
+            <option value="high school">high school</option>
+            <option value="master's degree">master's degree</option>
+            <option value="some college">some college</option>
+            <option value="some high school">some high school</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="lunch">Lunch Type</label>
+          <select id="lunch" class="form-select form-select-lg" name="lunch" required>
+            <option value="" selected disabled>Select Lunch Type</option>
+            <option value="free/reduced">free/reduced</option>
+            <option value="standard">standard</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="prep">Test Preparation Course</label>
+          <select id="prep" class="form-select form-select-lg" name="test_preparation_course" required>
+            <option value="" selected disabled>Select Test Course</option>
+            <option value="none">None</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="reading">Reading Score (0–100)</label>
+          <input id="reading" class="form-control form-control-lg" type="number"
+                 name="reading_score" placeholder="Enter Reading score"
+                 min="0" max="100" required />
+        </div>
+
+        <div class="col-md-6">
+          <label class="form-label" for="writing">Writing Score (0–100)</label>
+          <input id="writing" class="form-control form-control-lg" type="number"
+                 name="writing_score" placeholder="Enter Writing score"
+                 min="0" max="100" required />
+        </div>
+
+        <div class="col-12 d-flex flex-column flex-md-row justify-content-between align-items-md-center mt-3 gap-3">
+          <div class="small text-secondary">
+            <i class="bi bi-shield-check me-1"></i> Your data is processed locally. No third party used.
+          </div>
+          <div>
+            <button class="btn btn-brand btn-lg px-4" type="submit">
+              <i class="bi bi-graph-up-arrow me-1"></i> Predict Math Score
+            </button>
+          </div>
+        </div>
+      </form>
+
+      {% if results is defined %}
+      <hr class="my-4" />
+      <div class="d-flex flex-column flex-md-row align-items-md-center gap-3">
+        <span class="text-secondary">Prediction:</span>
+        <span class="result-chip shadow-sm">{{ results }}</span>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

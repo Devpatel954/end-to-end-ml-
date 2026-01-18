@@ -51,6 +51,6 @@ This project includes data ingestion, validation, feature engineering, model tra
 - Enable **automatic retraining** based on data drift detection.  
 - Add **GitHub Actions** or **AWS CodePipeline** for CI/CD automation.  
 - Containerize and deploy via **AWS ECS** or **Kubernetes (EKS)**.  
-- Add a **frontend dashboard** for prediction visualization and data analytics.  
+- Add a **frontend dashboard** for prediction visualization and data analytics.
 
 
